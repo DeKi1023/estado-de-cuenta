@@ -112,11 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const doc = new jsPDF();
 
         // Encabezado con logo
-        doc.setFontSize(14);
+        doc.setFontSize(18);
         doc.text('Hospital Santa Ines', 20, 20);
         const img = new Image();
         img.src = 'logo.jpeg';
-        doc.addImage(img, 'jpeg', 150, 10, 40, 40);
+        doc.addImage(img, 'jpeg', 150, 5, 50, 50);
 
         // Datos del paciente
         const patientName = document.getElementById('patientName').value;
@@ -127,58 +127,58 @@ document.addEventListener('DOMContentLoaded', () => {
         const diagnosis = document.getElementById('diagnosis').value;
 
         doc.setFontSize(10);
-        let y = 60;
+        let y = 40;
         doc.text(`Nombre del Paciente: ${patientName}`, 20, y);
-        doc.text(`Edad: ${patientAge}`, 20, y + 10);
-        doc.text(`Género: ${patientGender}`, 20, y + 20);
-        doc.text(`Dirección: ${patientAddress}`, 20, y + 30);
-        doc.text(`Teléfono: ${patientPhone}`, 20, y + 40);
-        doc.text(`Diagnóstico: ${diagnosis}`, 20, y + 50);
+        doc.text(`Edad: ${patientAge}`, 20, y + 5);
+        doc.text(`Género: ${patientGender}`, 20, y + 10);
+        doc.text(`Dirección: ${patientAddress}`, 20, y + 15);
+        doc.text(`Teléfono: ${patientPhone}`, 20, y + 20);
+        doc.text(`Diagnóstico: ${diagnosis}`, 20, y + 25);
 
-        y += 70;
+        y += 40;
 
         // Insumos
         doc.setFontSize(10);
         doc.text('Insumos Utilizados', 20, y);
-        y += 10;
+        y += 5;
         doc.setFontSize(8);
         document.querySelectorAll('.supply').forEach(supply => {
             const name = supply.querySelector('.supplyName').value;
             const quantity = supply.querySelector('.supplyQuantity').value;
             const cost = supply.querySelector('.supplyCost').value;
             doc.text(`- ${name}, Cantidad: ${quantity}, Costo Unitario: Q${cost}`, 20, y);
-            y += 10;
+            y += 5;
         });
         doc.text(`Total Insumos: Q${totalSuppliesCost.toFixed(2)}`, 20, y);
-        y += 15;
+        y += 10;
 
         // Costos Adicionales
         doc.setFontSize(10);
         doc.text('Costos Adicionales', 20, y);
-        y += 10;
+        y += 5;
         doc.setFontSize(8);
         doc.text(`Hospitalización: Q${parseFloat(hospitalizationCostInput.value).toFixed(2)}`, 20, y);
-        y += 10;
+        y += 5;
         doc.text(`Camilla: Q${parseFloat(bedCostInput.value).toFixed(2)}`, 20, y);
-        y += 10;
+        y += 5;
         doc.text(`Otros Costos: Q${parseFloat(otherCostsInput.value).toFixed(2)}`, 20, y);
-        y += 10;
+        y += 5;
         doc.text(`Total Costos Adicionales: Q${totalAdditionalCosts.toFixed(2)}`, 20, y);
-        y += 15;
+        y += 10;
 
         // Honorarios Médicos
         doc.setFontSize(10);
         doc.text('Honorarios Médicos', 20, y);
-        y += 10;
+        y += 5;
         doc.setFontSize(8);
         document.querySelectorAll('.doctor').forEach(doctor => {
             const name = doctor.querySelector('.doctorName').value;
             const fee = doctor.querySelector('.doctorFee').value;
             doc.text(`- Dr. ${name}, Honorarios: Q${fee}`, 20, y);
-            y += 10;
+            y += 5;
         });
         doc.text(`Total Honorarios Médicos: Q${totalDoctorsCost.toFixed(2)}`, 20, y);
-        y += 15;
+        y += 10;
 
         // Total General
         doc.setFontSize(12);
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Pie de página
         doc.setFontSize(10);
-        doc.text('Hospital Santa Ines | Teléfono: 2305-1205 | Dirección: 4 calle 3-45, Boulevar Principal San Cristóbal, Mixco, Guatemala', 20, 280);
+        doc.text('Hospital Santa Ines | Teléfono: 2305-1205 | Dirección: 4 calle 3-45, Boulevar Principal San Cristóbal, Mixco, Guatemala', 10, 280);
 
         doc.save('estado_de_cuenta.pdf');
     });
