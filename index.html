@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Cuenta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.jpeg" alt="Logo Hospital" class="logo">
+            <h1>Estado de Cuenta</h1>
+        </header>
+
+        <form id="billingForm">
+            <fieldset>
+                <legend>Datos del Paciente</legend>
+                <label for="patientName">Nombre:</label>
+                <input type="text" id="patientName" name="patientName" required>
+
+                <label for="patientAge">Edad:</label>
+                <input type="number" id="patientAge" name="patientAge" required>
+
+                <label for="patientGender">Género:</label>
+                <select id="patientGender" name="patientGender" required>
+                    <option value="">Seleccione</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                </select>
+
+                <label for="patientAddress">Dirección:</label>
+                <input type="text" id="patientAddress" name="patientAddress" required>
+
+                <label for="patientAddress">Seguro Médico:</label>
+                <input type="text" id="patientAddress" name="patientAddress" required>
+
+                <label for="patientPhone">Teléfono:</label>
+                <input type="tel" id="patientPhone" name="patientPhone" required>
+
+                <label for="diagnosis">Diagnóstico:</label>
+                <input type="text" id="diagnosis" name="diagnosis" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Insumos Utilizados</legend>
+                <div id="suppliesSection">
+                    <!-- Aquí se agregarán dinámicamente los insumos -->
+                </div>
+                <button type="button" id="addSupplyBtn">Agregar Insumo</button>
+                <p>Total insumos: Q<span id="totalSupplies">0.00</span></p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Costos Adicionales</legend>
+                <label for="hospitalizationCost">Costo por Hospitalización:</label>
+                <input type="number" id="hospitalizationCost" name="hospitalizationCost" value="0" required>
+
+                <label for="bedCost">Costo por Camilla:</label>
+                <input type="number" id="bedCost" name="bedCost" value="0" required>
+
+                <label for="otherCosts">Otros Costos:</label>
+                <input type="number" id="otherCosts" name="otherCosts" value="0" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Honorarios Médicos</legend>
+                <div id="doctorsSection">
+                    <!-- Aquí se agregarán dinámicamente los médicos -->
+                </div>
+                <button type="button" id="addDoctorBtn">Agregar Médico</button>
+                <p>Total honorarios médicos: Q<span id="totalDoctors">0.00</span></p>
+            </fieldset>
+
+            <p>Total a pagar: Q<span id="totalCost">0.00</span></p>
+
+            <button type="button" id="generatePdfBtn">Generar PDF</button>
+        </form>
+        
+        <footer>
+            <p>Hospital Santa Ines | Teléfono: 2305-1205 | Dirección: 4 calle 3-45, Boulevar Principal San Cristóbal, Mixco, Guatemala</p>
+        </footer>
+    </div>
+
+    <!-- Incluir jsPDF desde un CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
