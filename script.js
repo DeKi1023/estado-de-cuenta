@@ -146,10 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = supply.querySelector('.supplyName').value;
             const quantity = supply.querySelector('.supplyQuantity').value;
             const cost = supply.querySelector('.supplyCost').value;
-            doc.text(`- ${name}, Cantidad: ${quantity}, Costo Unitario: $${cost}`, 20, y);
+            doc.text(`- ${name}, Cantidad: ${quantity}, Costo Unitario: Q${cost}`, 20, y);
             y += 10;
         });
-        doc.text(`Total Insumos: $${totalSuppliesCost.toFixed(2)}`, 20, y);
+        doc.text(`Total Insumos: Q${totalSuppliesCost.toFixed(2)}`, 20, y);
         y += 15;
 
         // Costos Adicionales
@@ -157,13 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.text('Costos Adicionales', 20, y);
         y += 10;
         doc.setFontSize(12);
-        doc.text(`Hospitalización: $${parseFloat(hospitalizationCostInput.value).toFixed(2)}`, 20, y);
+        doc.text(`Hospitalización: Q${parseFloat(hospitalizationCostInput.value).toFixed(2)}`, 20, y);
         y += 10;
-        doc.text(`Camilla: $${parseFloat(bedCostInput.value).toFixed(2)}`, 20, y);
+        doc.text(`Camilla: Q${parseFloat(bedCostInput.value).toFixed(2)}`, 20, y);
         y += 10;
-        doc.text(`Otros Costos: $${parseFloat(otherCostsInput.value).toFixed(2)}`, 20, y);
+        doc.text(`Otros Costos: Q${parseFloat(otherCostsInput.value).toFixed(2)}`, 20, y);
         y += 10;
-        doc.text(`Total Costos Adicionales: $${totalAdditionalCosts.toFixed(2)}`, 20, y);
+        doc.text(`Total Costos Adicionales: Q${totalAdditionalCosts.toFixed(2)}`, 20, y);
         y += 15;
 
         // Honorarios Médicos
@@ -174,15 +174,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.doctor').forEach(doctor => {
             const name = doctor.querySelector('.doctorName').value;
             const fee = doctor.querySelector('.doctorFee').value;
-            doc.text(`- Dr. ${name}, Honorarios: $${fee}`, 20, y);
+            doc.text(`- Dr. ${name}, Honorarios: Q${fee}`, 20, y);
             y += 10;
         });
-        doc.text(`Total Honorarios Médicos: $${totalDoctorsCost.toFixed(2)}`, 20, y);
+        doc.text(`Total Honorarios Médicos: Q${totalDoctorsCost.toFixed(2)}`, 20, y);
         y += 15;
 
         // Total General
         doc.setFontSize(16);
-        doc.text(`Total a Pagar: $${(totalSuppliesCost + totalDoctorsCost + totalAdditionalCosts).toFixed(2)}`, 20, y);
+        doc.text(`Total a Pagar: Q${(totalSuppliesCost + totalDoctorsCost + totalAdditionalCosts).toFixed(2)}`, 20, y);
 
         // Pie de página
         doc.setFontSize(10);
