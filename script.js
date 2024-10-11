@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const doc = new jsPDF();
 
         // Encabezado con logo
-        doc.setFontSize(22);
+        doc.setFontSize(14);
         doc.text('Hospital Santa Ines', 20, 20);
         const img = new Image();
         img.src = 'logo.jpeg';
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const patientPhone = document.getElementById('patientPhone').value;
         const diagnosis = document.getElementById('diagnosis').value;
 
-        doc.setFontSize(14);
+        doc.setFontSize(10);
         let y = 60;
         doc.text(`Nombre del Paciente: ${patientName}`, 20, y);
         doc.text(`Edad: ${patientAge}`, 20, y + 10);
@@ -138,10 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
         y += 70;
 
         // Insumos
-        doc.setFontSize(16);
+        doc.setFontSize(10);
         doc.text('Insumos Utilizados', 20, y);
         y += 10;
-        doc.setFontSize(12);
+        doc.setFontSize(8);
         document.querySelectorAll('.supply').forEach(supply => {
             const name = supply.querySelector('.supplyName').value;
             const quantity = supply.querySelector('.supplyQuantity').value;
@@ -153,10 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         y += 15;
 
         // Costos Adicionales
-        doc.setFontSize(16);
+        doc.setFontSize(10);
         doc.text('Costos Adicionales', 20, y);
         y += 10;
-        doc.setFontSize(12);
+        doc.setFontSize(8);
         doc.text(`Hospitalización: Q${parseFloat(hospitalizationCostInput.value).toFixed(2)}`, 20, y);
         y += 10;
         doc.text(`Camilla: Q${parseFloat(bedCostInput.value).toFixed(2)}`, 20, y);
@@ -167,10 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
         y += 15;
 
         // Honorarios Médicos
-        doc.setFontSize(16);
+        doc.setFontSize(10);
         doc.text('Honorarios Médicos', 20, y);
         y += 10;
-        doc.setFontSize(12);
+        doc.setFontSize(8);
         document.querySelectorAll('.doctor').forEach(doctor => {
             const name = doctor.querySelector('.doctorName').value;
             const fee = doctor.querySelector('.doctorFee').value;
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         y += 15;
 
         // Total General
-        doc.setFontSize(16);
+        doc.setFontSize(12);
         doc.text(`Total a Pagar: Q${(totalSuppliesCost + totalDoctorsCost + totalAdditionalCosts).toFixed(2)}`, 20, y);
 
         // Pie de página
